@@ -5,13 +5,17 @@ import { api } from "../services/api";
 
 import "../styles/sidebar.scss";
 
+interface SideBarProps {
+  onHandleGenreChange: (number: number) => void;
+}
+
 interface GenreResponseProps {
   id: number;
   name: "action" | "comedy" | "documentary" | "drama" | "horror" | "family";
   title: string;
 }
 
-export function SideBar(props: any) {
+export function SideBar({ onHandleGenreChange }: SideBarProps) {
   const [selectedGenreId, setSelectedGenreId] = useState(1);
   const [genres, setGenres] = useState<GenreResponseProps[]>([]);
 
@@ -22,7 +26,7 @@ export function SideBar(props: any) {
   }, []);
 
   function handleClickButton(id: number) {
-    props.onSelectedChange(id);
+    onHandleGenreChange(id);
     setSelectedGenreId(id);
   }
 

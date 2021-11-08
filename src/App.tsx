@@ -19,7 +19,7 @@ export function App() {
 
   return (
     <div style={{ display: "flex", flexDirection: "row" }}>
-      <SideBar onSelectedChange={handleGenreChange} />
+      <SideBar onHandleGenreChange={handleGenreChange} />
       <Content selectedGenreId={selectedGenreId} />
     </div>
   );
